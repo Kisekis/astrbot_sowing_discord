@@ -226,7 +226,7 @@ class Sowing_Discord(Star):
     
     async def get_group_list(self, event: AstrMessageEvent):
         client = event.bot
-        response = await client.api.call_action("get_group_list", {"no_cache": False})
+        response = await client.api.call_action("get_group_list", no_cache=False)
         group_ids = [item['group_id'] for item in response]
         logger.info(
             f"[SowingDiscord] 目标群列表为空，自动获取到 {len(group_ids)} 个群组作为目标群。"
